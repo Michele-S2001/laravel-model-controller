@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Movies - Home</title>
-  <!-- Fonts -->
-  <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Styles -->
-  @vite('resources/js/app.js')
-</head>
+{{--  default layout extended  --}}
+@extends('layouts.default')
 
-<body>
-  
+{{-- page title --}}
+@section('page-title', 'Home - Movies')
+
+{{--  all the body content here --}}
+@section('content')
+    
   <header class="page-header mb-3">
     <div class="container">
       <h1>Movies</h1>
@@ -22,8 +17,8 @@
     <div class="container">
       <div class="row row-gap-3">
         @foreach ($movies as $movie)
-          <div class="col-3">
-            <div class="card">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card card--height">
               <div class="card-header fw-bold">
                 {{ $movie->title }}
               </div>
@@ -46,7 +41,4 @@
         @endforeach
       </div>
     </div>
-
-  </main>
-
-</body>
+@endsection  
